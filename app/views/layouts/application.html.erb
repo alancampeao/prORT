@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PrORT</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+  		<title>PrORT</title>
+  		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  		<%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<%= yield %>
+		<% if notice.present? %>
+			<%= notice %>
+		<% end %>
+		
+		<% if alert.present? %>
+			<%= alert %>
+		<% end %>
 
-</body>
+		<%= yield %>
+
+	</body>
 </html>
