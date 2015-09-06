@@ -17,6 +17,10 @@
 	</p>
 
 	<p>
+		<%= f.collection_select :category_id, Category.all, :id, :nome, { prompt: "Escolha uma categoria para o post" } %>
+	</p>
+
+	<p>
 		<%= f.label :conteudo, "Escreva!" %> <br>
 		<%= f.text_area :conteudo %>
 	</p>
