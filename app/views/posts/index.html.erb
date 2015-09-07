@@ -8,6 +8,7 @@
 	<% @posts.each do |post| %>
 		<h2><%= link_to post.titulo, post_path(post) %></h2>
 		<p><b><%= truncate(post.conteudo, length: 15) %></b></p>
+		<p>Categoria: <%= post.category.nome %></p>
 		<p>Criado há: <b><%= time_ago_in_words(post.created_at) %></b></p>
 		<hr>
 		<br>
