@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 		if params[:category].blank?
 			@posts = Post.all.order("created_at DESC")
 		else
-			@category_id = Category.find_by(nome: params[:category]).id
+			@category_id = Category.find_by(name: params[:category]).id
 			@posts = Post.where(category_id: @category_id)
 		end
 	end
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:titulo, :conteudo, :category_id)
+		params.require(:post).permit(:title, :content, :category_id)
 	end
 
 end

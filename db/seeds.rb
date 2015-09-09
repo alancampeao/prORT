@@ -1,12 +1,12 @@
 Category.create!([
-  {nome: "PR"},
-  {nome: "EL"},
-  {nome: "BT"},
-  {nome: "CS"},
-  {nome: "Médio"},
-  {nome: "Fundamental"},
-  {nome: "Professores"},
-  {nome: "Funcionários"}
+  {name: "PR"},
+  {name: "EL"},
+  {name: "BT"},
+  {name: "CS"},
+  {name: "Médio"},
+  {name: "Fundamental"},
+  {name: "Professores"},
+  {name: "Funcionários"}
 ])
 
 # Post.create!([

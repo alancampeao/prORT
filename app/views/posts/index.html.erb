@@ -6,9 +6,9 @@
 	<h4><%= link_to 'Crie um!', new_post_path %></h4>
 <% else %>
 	<% @posts.each do |post| %>
-		<h2><%= link_to post.titulo, post_path(post) %></h2>
-		<p><b><%= truncate(post.conteudo, length: 15) %></b></p>
-		<p>Categoria: <%= post.category.nome %></p>
+		<h2><%= link_to post.title, post_path(post) %></h2>
+		<p><b><%= truncate(post.content, length: 20) %></b></p>
+		<p>Categoria: <%= post.category.name %></p>
 		<p>Criado há: <b><%= time_ago_in_words(post.created_at) %></b></p>
 		<hr>
 		<br>
@@ -21,7 +21,7 @@
 
 <p>
 	<% Category.all.each do |category| %>
-		<%= link_to category.nome, posts_path(category: category.nome) %>|
+		<%= link_to category.name, posts_path(category: category.name) %>|
 	<% end %>
 	<%= link_to "Todos os posts", posts_path %>
 </p>

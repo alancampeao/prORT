@@ -12,17 +12,17 @@
 <%= form_for @post do |f| %>
 
 	<p>
-		<%= f.label :titulo, "Título do post" %> <br>
-		<%= f.text_field :titulo %>
+		<%= f.label :title, "Título do post" %> <br>
+		<%= f.text_field :title %>
 	</p>
 
 	<p>
-		<%= f.collection_select :category_id, Category.all, :id, :nome, { prompt: "Escolha uma categoria para o post" } %>
+		<%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Escolha uma categoria para o post" } %>
 	</p>
 
 	<p>
-		<%= f.label :conteudo, "Escreva!" %> <br>
-		<%= f.text_area :conteudo %>
+		<%= f.label :content, "Escreva!" %> <br>
+		<%= f.text_area :content %>
 	</p>
 	
 	<p>
