@@ -3,6 +3,17 @@
 <br>
 
 <h4><%= @post.content %></h4>
+<hr>
+
+<% if @post.versions.count != 0 %>
+	<h4>Histórico de edições:</h4>
+	<% @post.versions.each do |p| %>
+		<p>Titulo: <%= p.reify.title %></p>
+		<p>Conteudo: <%= p.reify.content %></p>
+		<p>Edição ocorreu há: <%= time_ago_in_words(p.created_at) %></p>
+		-------------------
+	<% end %>
+<% end %>
 
 <p>
 	<%= link_to "Todos os posts", posts_path %>|
