@@ -11,7 +11,7 @@
 		<p>Categoria: <%= post.category.name %></p>
 		<p>Criado há: <b><%= time_ago_in_words(post.created_at) %></b></p>
 		<p>
-			<% if post.versions.count != 0 %>
+			<% if post.versions.count > 1 %>
 				Post editado.
 			<% end %>
 		</p>
