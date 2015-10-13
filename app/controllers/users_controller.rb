@@ -17,8 +17,7 @@ class UsersController < ApplicationController
             redirect_to @user ,
                 notice: 'Cadastrado com sucesso!'
         else
-            render action: :new,
-                notice: 'Erro no cadastro'
+            render action: :new
         end
     end 
     
