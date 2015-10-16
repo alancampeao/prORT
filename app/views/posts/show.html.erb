@@ -1,0 +1,20 @@
+<h2>Titulo: <%= @post.title %></h2>
+
+<br>
+
+<h4><%= @post.content %></h4>
+<hr>
+
+<% if @post.versions.count > 1 %> <%# foi editado %>
+	<h4>Última edição do post:</h4>
+	<p>Titulo: <%= @post.versions.last.reify.title %></p>
+	<p>Conteudo: <%= @post.versions.last.reify.content %></p>
+<% end %>
+
+<p>
+	<%= link_to "Todos os posts", posts_path %>|
+	<%= link_to "Novo post", new_post_path %>|
+	<%= link_to "Editar post", edit_post_path(@post.id) %>|
+	<%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza disso?" } %>|
+	<%= link_to "Home", root_path %>
+</p>

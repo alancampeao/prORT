@@ -1,0 +1,32 @@
+<% if @posts.count == 0 && params[:category].blank? %>
+	<h2>Não possuimos nenhum post até o momento!</h2> 
+	<h4><%= link_to 'Crie um!', new_post_path %></h4>
+<% elsif @posts.count == 0 && params[:category].present? %>
+	<h2>Não possuimos nenhum post com determinada categoria até o momento!</h2> 
+	<h4><%= link_to 'Crie um!', new_post_path %></h4>
+<% else %>
+	<% @posts.each do |post| %>
+		<h2><%= link_to post.title, post_path(post) %></h2>
+		<p><b><%= truncate(post.content, length: 20) %></b></p>
+		<p>Categoria: <%= post.category.name %></p>
+		<p>Criado há: <b><%= time_ago_in_words(post.created_at) %></b></p>
+		<p>
+			<% if post.versions.count > 1 %>
+				Post editado.
+			<% end %>
+		</p>
+		<hr>
+		<br>
+	<% end %>
+<% end %>
+
+<p>
+	<%= link_to "Home", root_path %>
+</p>
+
+<p>
+	<% Category.all.each do |category| %>
+		<%= link_to category.name, posts_path(category: category.name) %>|
+	<% end %>
+	<%= link_to "Todos os posts", posts_path %>
+</p>
