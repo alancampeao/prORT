@@ -1,4 +1,17 @@
 class PostsController < ApplicationController
+
+	def upvote
+		@post = Post.find(params[:id])
+    	@post.upvote_by user
+    	redirect_to posts_path
+    end
+    
+    def downvote
+		@post = Post.find(params[:id])
+    	@post.downvote_by user
+    	redirect_to posts_path
+    end
+	
 	def index
 		if params[:category].blank?
 			@posts = Post.all.order("created_at DESC")
@@ -45,8 +58,7 @@ class PostsController < ApplicationController
 		@post.destroy
 		redirect_to posts_path, notice: "Post deletado com sucesso!"
 	end
-
-
+	
 	private
 
 	def post_params

@@ -16,10 +16,16 @@
 			<% end %>
 		</p>
 		<hr>
-		<br>
-	<% end %>
+		<% end %>
 <% end %>
-
+		<% @posts.each do |post| %>
+  	   		<p>]
+  	   			<%= link_to "upvote", upvote.post_path(post), method: :put %>
+  	   			<%= link_to "downvote", downvote.post_path(post), method: :put %>
+  	   			<%= post.score %>
+  	   		</p>	
+		<br>
+		<% end %>
 <p>
 	<%= link_to "Home", root_path %>
 </p>
