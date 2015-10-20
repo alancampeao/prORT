@@ -15,15 +15,15 @@
 				Post editado.
 			<% end %>
 		</p>
-		<hr>
-		<% end %>
-<% end %>
 		<% @posts.each do |post| %>
   	   		<p>
   	   			<%= link_to "upvote", like_post_path(post), method: :put %>
   	   			<%= link_to "downvote", dislike_post_path(post), method: :put %>
   	   			<%= post.score %>
   	   		</p>	
+		<hr>
+		<% end %>
+<% end %>
 		<br>
 		<% end %>
 <p>
