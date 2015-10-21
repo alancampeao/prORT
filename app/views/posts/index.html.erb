@@ -15,11 +15,17 @@
 				Post editado.
 			<% end %>
 		</p>
+		<% @posts.each do |post| %>
+  	   		<p>
+  	   			<%= link_to "upvote", like_post_path(post), method: :put %>
+  	   			<%= link_to "downvote", dislike_post_path(post), method: :put %>
+  	   			<%= post.score %>
+  	   		</p>	
 		<hr>
-		<br>
-	<% end %>
+		<% end %>
 <% end %>
-
+		<br>
+		<% end %>
 <p>
 	<%= link_to "Home", root_path %>
 </p>
