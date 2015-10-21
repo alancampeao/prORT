@@ -5,13 +5,13 @@ class PostsController < ApplicationController
     	@post.upvote_by User.find(1) #usando isto até ter metodo current_user
     	redirect_to :back
     end
-    
+
     def downvote
 		@post = Post.find(params[:id])
     	@post.downvote_by User.find(1) #usando isto até ter metodo current_user
     	redirect_to :back
     end
-	
+
 	def index
 		if params[:category].blank?
 			@posts = Post.all.order("created_at DESC")
@@ -58,11 +58,11 @@ class PostsController < ApplicationController
 		@post.destroy
 		redirect_to posts_path, notice: "Post deletado com sucesso!"
 	end
-	
+
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :content, :category_id)
+		params.require(:post).permit(:title, :content, :category_id, :anonymous)
 	end
 
 end

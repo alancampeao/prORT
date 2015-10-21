@@ -1,8 +1,8 @@
 <% if @posts.count == 0 && params[:category].blank? %>
-	<h2>Não possuimos nenhum post até o momento!</h2> 
+	<h2>Não possuimos nenhum post até o momento!</h2>
 	<h4><%= link_to 'Crie um!', new_post_path %></h4>
 <% elsif @posts.count == 0 && params[:category].present? %>
-	<h2>Não possuimos nenhum post com determinada categoria até o momento!</h2> 
+	<h2>Não possuimos nenhum post com determinada categoria até o momento!</h2>
 	<h4><%= link_to 'Crie um!', new_post_path %></h4>
 <% else %>
 	<% @posts.each do |post| %>
@@ -15,12 +15,17 @@
 				Post editado.
 			<% end %>
 		</p>
+		<% if post.anonymous == '1' %>
+    			<p>Autor: Anônimo</p>
+		<% else %>
+   			<p>Autor: *nome do autor ao fazer relacionamentos*</p>
+		<% end %>
 		<% @posts.each do |post| %>
   	   		<p>
   	   			<%= link_to "upvote", like_post_path(post), method: :put %>
   	   			<%= link_to "downvote", dislike_post_path(post), method: :put %>
   	   			<%= post.score %>
-  	   		</p>	
+  	   		</p>
 		<hr>
 		<% end %>
 <% end %>

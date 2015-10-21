@@ -1,7 +1,7 @@
 <% if @post.errors.any? %>
 	<ul>
 		<% @post.errors.full_messages.each do |error| %>
-			<li><%= error %></li>	
+			<li><%= error %></li>
 		<% end %>
 	</ul>
 <% end %>
@@ -24,7 +24,12 @@
 		<%= f.label :content, "Escreva!" %> <br>
 		<%= f.text_area :content %>
 	</p>
-	
+
+	<p>
+		<%= f.check_box :anonymous, id: "anemona" %>
+		<%= f.label :anonymous, "Postar como anônimo", {:for => "anemona"} %>
+	</p>
+
 	<p>
 		<%= f.submit "Atualizar post" %>
 	</p>

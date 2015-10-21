@@ -3,6 +3,12 @@
 <br>
 
 <h4><%= @post.content %></h4>
+
+<% if @post.anonymous == '1' %>
+    <p>Autor: Anônimo</p>
+<% else %>
+    <p>Autor: *nome do autor ao fazer relacionamentos*</p>
+<% end %>
 <hr>
 
 <% if @post.versions.count > 1 %> <%# foi editado %>
