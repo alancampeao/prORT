@@ -17,21 +17,20 @@
 		</p>
 		<% if post.anonymous == '1' %>
     			<p>Autor: Anônimo</p>
-		<% else %>
-   			<p>Autor: *nome do autor ao fazer relacionamentos*</p>
-		<% end %>
-		<% @posts.each do |post| %>
-  	   		<p>
-  	   			<%= link_to "upvote", like_post_path(post), method: :put %>
+    			<%= link_to "upvote", like_post_path(post), method: :put %>
   	   			<%= link_to "downvote", dislike_post_path(post), method: :put %>
   	   			<%= post.score %>
-  	   		</p>
-		<hr>
+		<% else %>
+   			<p>Autor: *nome do autor ao fazer relacionamentos*</p>
+   				<%= link_to "upvote", like_post_path(post), method: :put %>
+  	   			<%= link_to "downvote", dislike_post_path(post), method: :put %>
+  	   			<%= post.score %>
 		<% end %>
-<% end %>
+		<% end %>
 		<br>
-		<% end %>
-<p>
+	<% end %>
+	
+<p>			
 	<%= link_to "Home", root_path %>
 </p>
 
