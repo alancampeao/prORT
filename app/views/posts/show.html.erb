@@ -7,7 +7,7 @@
 <% if @post.anonymous == '1' %>
     <p>Autor: Anônimo</p>
 <% else %>
-    <p>Autor: *nome do autor ao fazer relacionamentos*</p>
+	<p>Autor: <%= @post.user.full_name %></p>
 <% end %>
 <hr>
 
