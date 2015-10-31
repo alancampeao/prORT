@@ -2,9 +2,15 @@
 
 <p>
     Escolha uma das ações a seguir:
-    <ul>
-        <li><%= link_to "Cadastro", new_user_path%></li>
-        <li><%= link_to "Todos os posts", posts_path %></li>
+    <ul>    
+        <% if logged_in? %>
+            <li><%= link_to "Todos os posts", posts_path %></li>
+            <li><%= link_to "Perfil", current_user %></li>
+            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+        <% else %>
+            <li><%= link_to "Cadastro", new_user_path%></li>
+            <li><%= link_to "Log in", login_path %></li>
+        <% end %>
     </ul>
     
 </p>
