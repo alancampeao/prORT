@@ -21,7 +21,7 @@
   	   			<%= link_to "downvote", dislike_post_path(post), method: :put %>
   	   			<%= post.score %>
 		<% else %>
-   			<p>Autor: <%= @post.user.full_name %></p>
+   			<p>Autor: <%= post.user.full_name %></p>
    				<%= link_to "upvote", like_post_path(post), method: :put %>
   	   			<%= link_to "downvote", dislike_post_path(post), method: :put %>
   	   			<%= post.score %>
