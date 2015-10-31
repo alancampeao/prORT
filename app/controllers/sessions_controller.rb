@@ -9,10 +9,14 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user  
     else
-    flash.now[:danger] = 'Email ou senha errados'  
-    render 'new'
+      flash.now[:danger] = 'Email ou senha errados'  
+      render 'new'
     end  
   end 
+  
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
   
   def destroy
     log_out

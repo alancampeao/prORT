@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
     acts_as_voter
+    has_many :posts
     
     validates :email, email_format: { message: "O formato do email está errado!" }
     

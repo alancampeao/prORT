@@ -18,9 +18,9 @@
 <% end %>
 
 <p>
-	<%= link_to "Todos os posts", posts_path %>|
-	<%= link_to "Novo post", new_post_path %>|
-	<%= link_to "Editar post", edit_post_path(@post.id) %>|
-	<%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza disso?" } %>|
+	<%= link_to "Todos os posts", posts_path %>
+	<%= link_to "Novo post", new_post_path %>
+	<%= link_to "Editar post", edit_post_path(@post.id) %>
+	<%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza disso?" } %>
 	<%= link_to "Home", root_path %>
 </p>
