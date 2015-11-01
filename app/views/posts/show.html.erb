@@ -17,6 +17,21 @@
 	<p>Conteudo: <%= @post.versions.last.reify.content %></p>
 <% end %>
 
+<% if @post.comments.count == 0 %>
+	<h2>Não temos comentários para esse post até o momento.</h2>
+<% elsif @post.comments.count == 1 %>
+	<h2>Temos um comentário:</h2>
+	<%= render "comments/comment" %>
+<% else %>
+	<h2>Temos <%= @post.comments.count %> comentários:</h2>
+	<%= render "comments/comment" %>
+<% end %>
+
+
+<h2>Adicione um comentário!</h2>
+<%= render "comments/form" %>
+
+
 <p>
 	<%= link_to "Todos os posts", posts_path %>
 	<%= link_to "Novo post", new_post_path %>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'sessions/new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
@@ -11,9 +11,11 @@ Rails.application.routes.draw do
     put "dislike", to: "posts#downvote"
     end
   end
-  
+
   resources :users
-  resources :posts
+  resources :posts do
+      resources :comments, only: [:create, :destroy]
+  end
 
   root 'home#index'
 end
