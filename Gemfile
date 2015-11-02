@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'validates_email_format_of'
 gem "bcrypt", "~> 3.1.7"
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'MDL-rails'
 
 group :development, :test do
   gem 'byebug'
