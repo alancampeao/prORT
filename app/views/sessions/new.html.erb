@@ -1,5 +1,7 @@
-<% provide(:title, "Login") %>
-<h1>Login</h1>
+<% if logged_in? %>
+  <h2> Você já fez login! </h2>
+<% else %>
+  <h3>Login</h3>
     <%= form_for(:session, url: login_path) do |f| %>
     	<div class="mdl-textfield mdl-js-textfield">
     		<input class="mdl-textfield__input" type="text" id="sample1" />
@@ -12,5 +14,5 @@
       		<%= f.submit "Log in" %>
 
     <% end %>
-
     <p>Novo usuário? <%= link_to "Se cadastre!", new_user_path %></p>
+<% end %>

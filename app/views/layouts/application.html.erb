@@ -2,7 +2,7 @@
 <html>
 	<head>
 		 <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
-  		<title>PrORT</title>
+  		<title>prORT</title>
   		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   		<%= csrf_meta_tags %>
@@ -10,11 +10,49 @@
                           <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
-	<body>
+	<body>                  
+
+                          <% if logged_in? %>
                             <div class="demo-layout-waterfall mdl-layout mdl-js-layout">
                                 <header class="mdl-layout__header mdl-layout__header--waterfall">
                                 <div class="mdl-layout__header-row">
-                                    <span class="mdl-layout-title">prOrt</span>
+                                    <span class="mdl-layout-title">prORT</span>
+                                    <div class="mdl-layout-spacer"></div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                                    <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
+                                        <i class="material-icons">search</i>
+                                    </label>
+
+                                    <div class="mdl-textfield__expandable-holder">
+                                      <input class="mdl-textfield__input" type="text" name="sample" id="waterfall-exp">
+                                    </div>
+                              </div>
+                            </div>
+                            <div class="mdl-layout__header-row">
+                                <div class="mdl-layout-spacer"></div>
+                                    <nav class="mdl-navigation">
+                                        <%= link_to  "Home", root_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                                        <%= link_to  "Posts", posts_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                                        <%= link_to  "Perfil", current_user, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                                        <%= link_to  "Logout", logout_path, method: "delete",  class: "mdl-navigation__link grande mdl-color-text--black" %>
+                                    </nav>
+                                </div>
+                            </header>
+                            <div class="mdl-layout__drawer">
+                            <span class="mdl-layout-title">prORT</span>
+                            <nav class="mdl-navigation">
+                              <%= link_to  "Home", root_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "Posts", posts_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "Perfil", current_user, class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "Logout", logout_path, method: "delete",  class: "mdl-navigation__link grande mdl-color-text--black" %>
+                            </nav>
+                            </div>
+
+                          <% else %>
+                              <div class="demo-layout-waterfall mdl-layout mdl-js-layout">
+                                <header class="mdl-layout__header mdl-layout__header--waterfall">
+                                <div class="mdl-layout__header-row">
+                                    <span class="mdl-layout-title">prORT</span>
                                     <div class="mdl-layout-spacer"></div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
                                     <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
@@ -37,13 +75,16 @@
                                 </div>
                             </header>
                             <div class="mdl-layout__drawer">
-                            <span class="mdl-layout-title">PrORT</span>
+                            <span class="mdl-layout-title">prORT</span>
                             <nav class="mdl-navigation">
-                              <%= link_to  "Home", root_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
-                              <%= link_to  "Cadastrar", new_user_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
-                              <%= link_to  "Logar", login_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                              <%= link_to  "Home", root_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "Cadastrar", new_user_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "Logar", login_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
                             </nav>
                             </div>
+
+                          <% end %>
+
                             <main class="mdl-layout__content">
                             <div class="page-content"><%= yield %></div>
                             </main>
