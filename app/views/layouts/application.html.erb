@@ -11,13 +11,10 @@
 	</head>
 
 	<body>
-
-
-
                             <div class="demo-layout-waterfall mdl-layout mdl-js-layout">
                                 <header class="mdl-layout__header mdl-layout__header--waterfall">
                                 <div class="mdl-layout__header-row">
-                                    <span class="mdl-layout-title">PrOrt</span>
+                                    <span class="mdl-layout-title">prOrt</span>
                                     <div class="mdl-layout-spacer"></div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
                                     <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
@@ -50,8 +47,15 @@
                             <main class="mdl-layout__content">
                             <div class="page-content"><%= yield %></div>
                             </main>
+                            <footer class="mdl-mini-footer mdl-color--grey-750">
+                              <div class="mdl-mini-footer__left-section">
+                                <div class="mdl-logo">prORT</div>
+                                <ul class="mdl-mini-footer__link-list">
+                                  <li><a href="#">Contato</a></li>
+                                  <li><a href="#">Termos de compromisso</a></li>
+                                </ul>
+                              </div>
+                            </footer>
                             </div>
-
-
 	</body>
 </html>
