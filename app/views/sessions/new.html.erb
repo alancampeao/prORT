@@ -1,17 +1,29 @@
 <% if logged_in? %>
   <h2> Você já fez login! </h2>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
+  <i class="material-icons">warning</i>
 <% else %>
   <h3>Login</h3>
     <%= form_for(:session, url: login_path) do |f| %>
     	<div class="mdl-textfield mdl-js-textfield">
     		<input class="mdl-textfield__input" type="text" id="sample1" />
-      		<%= f.label :email %>
+      		<%= f.label :email, "Email" %>
       		<%= f.email_field :email %>
       	</div>
-      		<%= f.label :password %>
+      		<%= f.label :password, "Senha" %>
       		<%= f.password_field :password %>
 
-      		<%= f.submit "Log in" %>
+      		<%= f.submit "Login", class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
 
     <% end %>
     <p>Novo usuário? <%= link_to "Se cadastre!", new_user_path %></p>
