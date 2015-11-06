@@ -1,11 +1,19 @@
 <center>
-<p id = "notice"><%= notice %></p>
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h1 class="mdl-card__title-text">Perfil</h1>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <h5>Nome: <%= @user.full_name %></h5>
+	<h5>Email: <%= @user.email %></h5>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+      <%= link_to 'Editar Perfil', edit_user_path(@user), class:"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+  </div>
+</div>
+<center>
 
-<h2>Perfil: <%= @user.full_name %></h2>
 
-<h3>Email: <%= @user.email %></h3>
 
-<%= link_to 'Editar Perfil', edit_user_path(@user) %>
+    
 
-<%= link_to 'Home', root_path %>
-</center>
