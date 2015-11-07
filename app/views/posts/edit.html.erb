@@ -1,44 +1,51 @@
-<% if @post.errors.any? %>
-	<ul>
-		<% @post.errors.full_messages.each do |error| %>
-			<li><%= error %></li>
-		<% end %>
-	</ul>
-<% end %>
+<center>
+	<% if @post.errors.any? %>
+		<ul>
+			<% @post.errors.full_messages.each do |error| %>
+				<li><%= error %></li>
+			<% end %>
+		</ul>
+	<% end %>
 
 
-<h2>Editar post:</h2>
+	<h2>Atualize o post!</h2>
 
-<%= form_for @post do |f| %>
+	<%= form_for @post do |f| %>
 
-	<p>
-		<%= f.label :title, "Título do post" %> <br>
-		<%= f.text_field :title %>
-	</p>
+		<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col" >
+			<%= f.label :title, "Título do post", class:"mdl-textfield__label" %>
+			<%= f.text_field :title, class:"mdl-textfield__input" %>
+		</div>
 
-	<p>
-		<%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Escolha uma categoria para o post" } %>
-	</p>
+		<br> <br>
 
-	<p>
-		<%= f.label :content, "Escreva!" %> <br>
-		<%= f.text_area :content %>
-	</p>
+		<p>
+			<%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Escolha uma categoria para o post" }, class:"mdl-button mdl-js-button mdl-button--raised" %>
+		</p>
 
-	<p>
-		<%= f.check_box :anonymous, id: "anemona" %>
-		<%= f.label :anonymous, "Postar como anônimo", {:for => "anemona"} %>
-	</p>
+		<br> <br>
 
-	<p>
-		<%= f.submit "Atualizar post" %>
-	</p>
 
-<% end %>
+		<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col" >
+			<%= f.label :content, "Escreva!", class:"mdl-textfield__label" %> <br>
+			<%= f.text_area :content, class:"mdl-textfield__input big-textarea" %>
+		</div>
 
-<p>
-	<%= link_to "Todos os posts", posts_path %>|
-	<%= link_to "Novo post", new_post_path %>|
-	<%= link_to "Home", root_path %>
-</p>
+		<br> <br>
+
+
+		<label class="mdl-cell mdl-cell--6-col mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="anemona" >
+			<%= f.check_box :anonymous, id: "anemona", class:"mdl-checkbox__input" %>
+			<%= f.label "Anônimo?", {}, {class: "mdl-checkbox__label"} %>
+		</label>
+
+		<br> <br>
+
+
+		<p>
+			<%= f.submit "Editar post", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
+		</p>
+
+	<% end %>
+</center>
 
