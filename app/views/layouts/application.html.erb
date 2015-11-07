@@ -10,7 +10,7 @@
                           <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
-	<body>                  
+	<body>
 
                           <% if logged_in? %>
                             <div class="demo-layout-waterfall mdl-layout mdl-js-layout">
@@ -32,19 +32,21 @@
                                 <div class="mdl-layout-spacer"></div>
                                     <nav class="mdl-navigation">
                                         <%= link_to  "Home", root_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
-                                        <%= link_to  "Posts", posts_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                                        <%= link_to  "Novo post", new_post_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                                        <%= link_to  "Todos os posts", posts_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
                                         <%= link_to  "Perfil", current_user, class: "mdl-navigation__link grande mdl-color-text--white" %>
-                                        <%= link_to  "Logout", logout_path, method: "delete",  class: "mdl-navigation__link grande mdl-color-text--black" %>
+                                        <%= link_to  "Logout", logout_path, method: "delete",  class: "mdl-navigation__link grande mdl-color-text--white" %>
                                     </nav>
                                 </div>
                             </header>
                             <div class="mdl-layout__drawer">
                             <span class="mdl-layout-title">prORT</span>
                             <nav class="mdl-navigation">
-                              <%= link_to  "Home", root_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
-                              <%= link_to  "Posts", posts_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
-                              <%= link_to  "Perfil", current_user, class: "mdl-navigation__link grande mdl-color-text--black" %>
-                              <%= link_to  "Logout", logout_path, method: "delete",  class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "Home", root_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                              <%= link_to  "Novo post", new_post_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                              <%= link_to  "todos os posts", posts_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                              <%= link_to  "Perfil", current_user, class: "mdl-navigation__link grande mdl-color-text--white" %>
+                              <%= link_to  "Logout", logout_path, method: "delete",  class: "mdl-navigation__link grande mdl-color-text--white" %>
                             </nav>
                             </div>
 
