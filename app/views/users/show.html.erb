@@ -1,19 +1,34 @@
-<center>
-<div class="demo-card-wide mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title">
-    <h1 class="mdl-card__title-text">Perfil</h1>
-  </div>
-  <div class="mdl-card__supporting-text">
-    <h5>Nome: <%= @user.full_name %></h5>
-	<h5>Email: <%= @user.email %></h5>
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
+<style>
+.demo-card-square.mdl-card {
+  margin: 0;
+  top: 50px;
+  left: 480px;
+  margin-right: 10px;
+  width: 355px;
+  height: 300px;
+}
+.demo-card-square > .mdl-card__supporting-text {
+  color: #;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background: #E0E757;
+}
+</style>
+
+  <div class="demo-card-square mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Perfil</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <h5>
+        Nome: <%= @user.full_name %>
+        <br><br>
+        Email: <%= @user.email %>
+        <br><br><br><br>
+      </h5>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
       <%= link_to 'Editar Perfil', edit_user_path(@user), class:"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %>
+    </div>
   </div>
-</div>
-<center>
-
-
-
-    
-
