@@ -42,15 +42,16 @@
                             <div class="mdl-layout__drawer">
                             <span class="mdl-layout-title">prORT</span>
                             <nav class="mdl-navigation">
-                              <%= link_to  "Home", root_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
-                              <%= link_to  "Novo post", new_post_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
-                              <%= link_to  "todos os posts", posts_path, class: "mdl-navigation__link grande mdl-color-text--white" %>
-                              <%= link_to  "Perfil", current_user, class: "mdl-navigation__link grande mdl-color-text--white" %>
-                              <%= link_to  "Logout", logout_path, method: "delete",  class: "mdl-navigation__link grande mdl-color-text--white" %>
+                              <%= link_to  "Home", root_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "Novo post", new_post_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "todos os posts", posts_path, class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "Perfil", current_user, class: "mdl-navigation__link grande mdl-color-text--black" %>
+                              <%= link_to  "Logout", logout_path, method: "delete",  class: "mdl-navigation__link grande mdl-color-text--black" %>
                             </nav>
                             </div>
 
                           <% else %>
+
                               <div class="demo-layout-waterfall mdl-layout mdl-js-layout">
                                 <header class="mdl-layout__header mdl-layout__header--waterfall">
                                 <div class="mdl-layout__header-row">
