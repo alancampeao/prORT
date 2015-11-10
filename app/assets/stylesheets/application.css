@@ -15,4 +15,48 @@
  *= require_self
  */
 
+.demo-card-wide {
+	background: #F1EFF7;
+	left: 10px;
+}
 
+.demo-card-square.mdl-card {
+  margin: 0;
+  top: 50px;
+  left: 480px;
+  margin-right: 10px;
+  width: 355px;
+  height: 300px;
+}
+
+.demo-card-square > .mdl-card__supporting-text {
+  color: #;
+}
+
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background: #E0E757;
+}
+
+.edit-post {
+	text-align: center;
+}
+
+.post-new {
+	text-align: center;
+}
+
+.user-new {
+	text-align: center;
+}
+
+.session-new {
+	text-align: center;
+}
+
+.anemona {
+	left: -260px;
+}
+.categorias {
+	text-align: center;
+}

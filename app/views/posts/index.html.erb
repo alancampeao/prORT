@@ -4,6 +4,7 @@
   <center><h2>Não possuimos nenhum post com determinada categoria até o momento!</h2></center>
 <% else %>
   <% @posts.each do |post| %>
+                          <br>
                           <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                               <div class="mdl-card__title">
                                   <h2 class="mdl-card__title-text"><%= link_to post.title, post_path(post) %></h2>
@@ -35,13 +36,10 @@
   <% end %>
   <br>
 <% end %>
-
-<br><br><br>
-
-<center>
+<div class="categorias">
     <p>
       <% Category.all.each do |category| %>
         <%= link_to category.name, posts_path(category: category.name), class:"mdl-button mdl-js-button" %>
       <% end %>
     </p>
-</center>
+</div>

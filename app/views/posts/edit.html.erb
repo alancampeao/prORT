@@ -1,4 +1,4 @@
-<center>
+<div class="edit-post">
 	<% if @post.errors.any? %>
 		<ul>
 			<% @post.errors.full_messages.each do |error| %>
@@ -8,25 +8,25 @@
 	<% end %>
 
 
-	<h2>Atualize o post!</h2>
+	<h3>Atualize o post!</h3>
 
 	<%= form_for @post do |f| %>
 
-		<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col" >
-			<%= f.label :title, "Título do post", class:"mdl-textfield__label" %>
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--6-col" >
+			<%= f.label :title, "Título ", class:"mdl-textfield__label" %>
 			<%= f.text_field :title, class:"mdl-textfield__input" %>
 		</div>
 
 		<br> <br>
 
 		<p>
-			<%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Escolha uma categoria para o post" }, class:"mdl-button mdl-js-button mdl-button--raised" %>
+			<%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Escolha uma categoria para o post" } %>
 		</p>
 
 		<br> <br>
 
 
-		<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col" >
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--6-col" >
 			<%= f.label :content, "Escreva!", class:"mdl-textfield__label" %> <br>
 			<%= f.text_area :content, class:"mdl-textfield__input big-textarea" %>
 		</div>
@@ -47,5 +47,5 @@
 		</p>
 
 	<% end %>
-</center>
+</div>
 

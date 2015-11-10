@@ -1,4 +1,4 @@
-<center>
+<div class="post-new">
 	<% if @post.errors.any? %>
 		<ul>
 			<% @post.errors.full_messages.each do |error| %>
@@ -8,11 +8,11 @@
 	<% end %>
 
 
-	<h2>Crie um post:</h2>
+	<h3>Crie um post:</h3>
 
 	<%= form_for @post do |f| %>
 
-		<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col" >
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--6-col" >
 			<%= f.label :title, "Título", class:"mdl-textfield__label" %>
 			<%= f.text_field :title, class:"mdl-textfield__input" %>
 		</div>
@@ -20,13 +20,13 @@
 		<br> <br>
 
 		<p>
-			<%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Escolha uma categoria para o post" }, class:"mdl-button mdl-js-button mdl-button--raised" %>
+			<%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Escolha uma categoria para o post" } %>
 		</p>
 
 		<br> <br>
 
 
-		<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col" >
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--6-col" >
 			<%= f.label :content, "Escreva!", class:"mdl-textfield__label" %> <br>
 			<%= f.text_area :content, class:"mdl-textfield__input big-textarea" %>
 		</div>
@@ -36,7 +36,7 @@
 
 		<label class="mdl-cell mdl-cell--6-col mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="anemona" >
 			<%= f.check_box :anonymous, id: "anemona", class:"mdl-checkbox__input" %>
-			<%= f.label "Anônimo?", {}, {class: "mdl-checkbox__label"} %>
+			<%= f.label "Anônimo?", {}, {class: "anemona mdl-checkbox__label"} %>
 		</label>
 
 		<br> <br>
@@ -47,5 +47,5 @@
 		</p>
 
 	<% end %>
-</center>
+</div>
 
