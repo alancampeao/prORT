@@ -2,7 +2,7 @@
 	<% if @post.errors.any? %>
 		<ul>
 			<% @post.errors.full_messages.each do |error| %>
-				<li><%= error %></li>
+				<li class="error-msg"><%= error %></li>
 			<% end %>
 		</ul>
 	<% end %>
@@ -23,11 +23,10 @@
 			<%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Escolha uma categoria para o post" } %>
 		</p>
 
-		<br> <br>
-
+		<br> 
 
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--6-col" >
-			<%= f.label :content, "Escreva!", class:"mdl-textfield__label" %> <br>
+			<%= f.label :content, "Escreva!", class:"mdl-textfield__label"%> 
 			<%= f.text_area :content, class:"mdl-textfield__input big-textarea" %>
 		</div>
 

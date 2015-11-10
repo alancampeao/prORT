@@ -1,9 +1,10 @@
 <%= form_for ([@post, @post.comments.build]) do |f| %>
 
-    <p>
-        <%= f.text_area :content %>
-    </p>
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--6-col" >
+		<%= f.label :content, "Comentário", class:"mdl-textfield__label"%> 
+		<%= f.text_area :content, class:"mdl-textfield__input big-textarea" %>
+   </div>
 
-    <p><%= f.submit "Criar comentário" %></p>
+    <p><%= f.submit "Criar comentário", class:"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" %></p>
 
 <% end %>

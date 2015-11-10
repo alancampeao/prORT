@@ -1,41 +1,47 @@
-<h2>Titulo: <%= @post.title %></h2>
-
 <br>
+	<%= link_to "Todos os posts", posts_path, class:"mdl-button mdl-js-button" %>
+	<%= link_to "Novo post", new_post_path, class:"mdl-button mdl-js-button" %>
+	<%= link_to "Editar post", edit_post_path(@post.id), class:"mdl-button mdl-js-button" %>
+	<%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza disso?" }, class:"mdl-button mdl-js-button" %>
+	<%= link_to "Home", root_path, class:"mdl-button mdl-js-button" %>
+<br><br>
+<div class="show-post-card mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text"><%= link_to @post.title, post_path(@post) %></h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+      <h6><b><%= @post.content %></b></h6>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+       <% if @post.anonymous == '1' %>
+             <p><b>Autor</b>: Anônimo</p>
+        <% else %>
+            <p><b>Autor</b>: <%= @post.user.full_name %></p>
+        <% end %>
 
-<h4><%= @post.content %></h4>
+       <p><b>Pontuação</b>: <%= @post.score %> </p>
 
-<% if @post.anonymous == '1' %>
-    <p>Autor: Anônimo</p>
-<% else %>
-	<p>Autor: <%= @post.user.full_name %></p>
-<% end %>
-<hr>
+        <% if @post.category != nil %>
+            <p><b>Categoria</b>: <%= @post.category.name %></p>
+        <% end %>
 
-<% if @post.versions.count > 1 %> <%# foi editado %>
-	<h4>Última edição do post:</h4>
-	<p>Titulo: <%= @post.versions.last.reify.title %></p>
-	<p>Conteudo: <%= @post.versions.last.reify.content %></p>
-<% end %>
-
-<% if @post.comments.count == 0 %>
-	<h2>Não temos comentários para esse post até o momento.</h2>
-<% elsif @post.comments.count == 1 %>
-	<h2>Temos um comentário:</h2>
-	<%= render "comments/comment" %>
-<% else %>
-	<h2>Temos <%= @post.comments.count %> comentários:</h2>
-	<%= render "comments/comment" %>
-<% end %>
-
-
-<h2>Adicione um comentário!</h2>
-<%= render "comments/form" %>
-
-
-<p>
-	<%= link_to "Todos os posts", posts_path %>
-	<%= link_to "Novo post", new_post_path %>
-	<%= link_to "Editar post", edit_post_path(@post.id) %>
-	<%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza disso?" } %>
-	<%= link_to "Home", root_path %>
-</p>
+        <p><b>Criado há</b>: <%= time_ago_in_words(@post.created_at) %></p>
+  </div>
+  <div class="mdl-card__menu">
+      <%= link_to "Gostei", like_post_path(@post), method: :put,  class:"mdl-button mdl-js-button mdl-button--raised mdl-button--accent" %>
+      <%= link_to "Não gostei", dislike_post_path(@post), method: :put,  class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+  </div>
+  <div class="mdl-card__actions mdl-card--border" id="comentarios">
+  	<% if @post.comments.count == 0 %>
+		<h5>Não temos comentários para esse post até o momento.</h5>
+	<% elsif @post.comments.count == 1 %>
+		<h5>Temos um comentário:</h5>
+		<%= render "comments/comment" %>
+	<% else %>
+		<h5>Temos <%= @post.comments.count %> comentários:</h5>
+		<%= render "comments/comment" %>
+	<% end %>
+	<h6>Adicione um comentário!</h6>
+	<%= render "comments/form" %>
+</div>
+			

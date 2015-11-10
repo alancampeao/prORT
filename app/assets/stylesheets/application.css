@@ -15,9 +15,10 @@
  *= require_self
  */
 
-.demo-card-wide {
+#post-card-index {
 	background: #F1EFF7;
 	left: 10px;
+	width: 370px;
 }
 
 .demo-card-square.mdl-card {
@@ -46,7 +47,7 @@
 	text-align: center;
 }
 
-.user-new {
+.new-user {
 	text-align: center;
 }
 
@@ -57,6 +58,22 @@
 .anemona {
 	left: -260px;
 }
+
 .categorias {
 	text-align: center;
+}
+
+.error-msg {
+	text-align: center;
+	color: red;
+}
+
+.show-post-card {
+	background: #F1EFF7;
+	width: 580px;
+	left: 10px;
+}
+
+#post-paths-show {
+	left: 10px;
 }

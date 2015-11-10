@@ -3,10 +3,9 @@
 
 <% if @user.errors.any? %>
     <div id= "error_explanation">
-        <h5>Infelizmente não foi possível completar a ação pois o formulário possui os seguintes erros:</h5>
         <ul>
             <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <li class="error-msg"><%= message %></li>
             <% end %>
         </ul>
     </div>
