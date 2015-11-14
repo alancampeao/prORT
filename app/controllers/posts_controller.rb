@@ -16,11 +16,21 @@ class PostsController < ApplicationController
     end
 
 	def index
-		if params[:category].blank?
-			@posts = Post.order("cached_votes_score DESC")
-		else
+		if params[:category].blank? && params[:q].present?
+			@search_query = params[:q]
+			posts = Post.search(@search_query)
+			@posts = posts.order("cached_votes_score DESC")
+		elsif params[:category].present? && params[:q].blank?
 			@category_id = Category.find_by(name: params[:category]).id
 			posts = Post.where(category_id: @category_id)
+			@posts = posts.order("cached_votes_score DESC")
+		elsif params[:category].blank? && params[:q].blank?
+			@posts = Post.all.order("cached_votes_score DESC")
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@search_query = params[:q]
+			posts_with_categories = Post.where(category_id: @category_id)
+			posts = posts_categories.search(@search_query)
 			@posts = posts.order("cached_votes_score DESC")
 		end
 	end
