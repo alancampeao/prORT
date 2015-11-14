@@ -1,10 +1,9 @@
-<br>
-	<%= link_to "Todos os posts", posts_path, class:"mdl-button mdl-js-button" %>
-	<%= link_to "Novo post", new_post_path, class:"mdl-button mdl-js-button" %>
-	<%= link_to "Editar post", edit_post_path(@post.id), class:"mdl-button mdl-js-button" %>
-	<%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza disso?" }, class:"mdl-button mdl-js-button" %>
-	<%= link_to "Home", root_path, class:"mdl-button mdl-js-button" %>
-<br><br>
+<% if @post.user == current_user %>
+    <br>
+  	  <%= link_to "Editar post", edit_post_path(@post.id), class:"mdl-button mdl-js-button" %>
+  	  <%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza disso?" }, class:"mdl-button mdl-js-button" %>
+      <br><br>
+<% end %>
 <div class="show-post-card mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title">
       <h2 class="mdl-card__title-text"><%= link_to @post.title, post_path(@post) %></h2>
@@ -44,4 +43,3 @@
 	<h6>Adicione um comentário!</h6>
 	<%= render "comments/form" %>
 </div>
-			

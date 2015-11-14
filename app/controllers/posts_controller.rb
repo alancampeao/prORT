@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-	before_action :require_authentication, only: [:new, :create, :edit, :update, :destroy]
+	before_action :require_authentication, only: [:new, :create, :edit, :update, :destroy, :upvote, :downvote, :show]
+	before_action :can_edit, only: [:edit, :update]
 
 	def upvote
 		@post = Post.find(params[:id])
@@ -67,6 +68,16 @@ class PostsController < ApplicationController
 
 	def post_params
 		params.require(:post).permit(:title, :content, :category_id, :anonymous)
+	end
+
+	def can_edit
+	    unless logged_in? && post.user == current_user
+	            redirect_to post_path(params[:id])
+	    end
+	end
+
+	def post
+	       @post ||= Post.find(params[:id])
 	end
 
 end
