@@ -20,8 +20,8 @@ class PostsController < ApplicationController
 			@posts = Post.order("cached_votes_score DESC")
 		else
 			@category_id = Category.find_by(name: params[:category]).id
-			@posts = Post.where(category_id: @category_id)
-			@posts = Post.order("cached_votes_score DESC")
+			posts = Post.where(category_id: @category_id)
+			@posts = posts.order("cached_votes_score DESC")
 		end
 	end
 
