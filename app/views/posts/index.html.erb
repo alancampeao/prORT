@@ -27,7 +27,7 @@
 
                                     <p><b>Criado há</b>: <%= time_ago_in_words(post.created_at) %></p>
                               </div>
-                              <div class="mdl-card__menu">
+                              <div id="avaliacao-index">
                                   <%= link_to "Gostei", like_post_path(post), method: :put,  class:"mdl-button mdl-js-button mdl-button--raised mdl-button--accent" %>
                                   <%= link_to "Não gostei", dislike_post_path(post), method: :put,  class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
                               </div>
