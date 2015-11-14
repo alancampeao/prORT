@@ -89,7 +89,16 @@
                           <% end %>
 
                             <main class="mdl-layout__content">
-                            <div class="page-content"><%= yield %></div>
+                            <div class="page-content">
+                                <% if notice.present? %>
+                                  <%= notice %>
+                                <% end %>
+
+                                <% if alert.present? %>
+                                  <%= alert %>
+                                <% end %>
+                                <%= yield %>
+                            </div>
                             </main>
                             <footer class="mdl-mini-footer mdl-color--grey-750">
                               <div class="mdl-mini-footer__left-section">

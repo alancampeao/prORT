@@ -1,18 +1,4 @@
-<% if logged_in? %>
-  <h2> Você já fez login! </h2>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-  <i class="material-icons">warning</i>
-<% else %>
+
   <div class="session-new">
     <h3>Faça login!</h3>
       <%= form_for(:session, url: login_path) do |f| %>
@@ -28,5 +14,4 @@
         <br>
           <%= f.submit "Login", class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
       <% end %>
-<% end %>
   </div>
