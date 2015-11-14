@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+	before_action :require_authentication, only: [:new, :create, :edit, :update, :destroy]
 
 	def upvote
 		@post = Post.find(params[:id])
