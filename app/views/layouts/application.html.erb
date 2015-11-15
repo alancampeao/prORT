@@ -102,15 +102,18 @@
               <%= yield %>
           </div>
         </main>
-    <footer class="mdl-mini-footer mdl-color--grey-750">
-      <div class="mdl-mini-footer__left-section">
-        <div class="mdl-logo">prORT</div>
-          <ul class="mdl-mini-footer__link-list">
-            <li><a href="#">Contato</a></li>
-            <li><a href="#">Termos de compromisso</a></li>
-          </ul>
-      </div>
-    </footer>
+
+    <% if current_page?(:controller => 'home', :action => 'index') == false %>
+      <footer class="mdl-mini-footer mdl-color--grey-750">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">prORT</div>
+            <ul class="mdl-mini-footer__link-list">
+              <li><a href="#">Contato</a></li>
+              <li><a href="#">Termos de compromisso</a></li>
+            </ul>
+        </div>
+      </footer>
+    <% end %>
       </div>
 	</body>
 </html>

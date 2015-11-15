@@ -16,33 +16,26 @@
  */
 
 .titulo{
-		text-align: center;
-		color: #12263F
-	}
+	text-align: center;
+	color: #12263F
+}
 
-	.descricao{
-		text-align: center;
-	}
+.info{
+  text-align: center;
+}
 
-	#alan {
-		float: left;
-	}
+  .descricao{
+  text-align: center;
+  }
 
-	#thor {
-		float: left;
-	}
 
-    #ana {
-    	float: left;
-    }
 
-    #gustavo {
-    	float: left;
-    }
+  #aluno {
+    float: left;
+    margin-left: 60px;
+    margin-right: 40px;
+  }
 
-    #vitor {
-    	float: left;
-    }
 #waterfallTitle {
 	color: #12263F;
 }
@@ -90,7 +83,9 @@
 }
 
 .categorias {
+      margin-top: 20px;
 	text-align: center;
+      margin-bottom: 20px;
 }
 
 .error-msg {
@@ -99,14 +94,13 @@
 }
 
 #show-post-card {
+  text-align: center;
+  width: 90%;
 	background: #F1EFF7;
 	left: 1%;
 	top: -10%;
 }
 
-#post-paths-show {
-
-}
 
 .categorias {
 /*
