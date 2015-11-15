@@ -31,7 +31,7 @@
 	#thor {
 		float: left;
 	}
-    
+
     #ana {
     	float: left;
     }
@@ -86,7 +86,7 @@
 }
 
 .anemona {
-	
+
 }
 
 .categorias {
@@ -105,7 +105,7 @@
 }
 
 #post-paths-show {
-	
+
 }
 
 .categorias {
@@ -113,11 +113,25 @@
   position: fixed;
   top: 30%;
   left: 50%;
-  /* bring your own prefixes 
+  /* bring your own prefixes
   transform: translate(-30%, -30%);
 */
 }
 
 #avaliacao-index {
 	left: 10%;
+}
+
+.alert{
+    text-align: center;
+    color: red;
+    border: 1px solid red;
+    background-color: #F2DEDE;
+}
+
+.notice{
+    color: green;
+    text-align: center;
+    border: 1px solid green;
+    background-color: #DFF0D8;
 }

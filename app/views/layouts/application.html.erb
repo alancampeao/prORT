@@ -90,10 +90,14 @@
         <main class="mdl-layout__content">
           <div class="page-content">
               <% if notice.present? %>
-                <%= notice %>
+                <div class="notice">
+                  <%= notice %>
+                </div>
               <% end %>
               <% if alert.present? %>
-                <%= alert %>
+                <div class="alert">
+                  <%= alert %>
+                </div>
               <% end %>
               <%= yield %>
           </div>
