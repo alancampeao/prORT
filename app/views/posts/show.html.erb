@@ -1,8 +1,10 @@
 <% if @post.user == current_user %>
+  <center>
     <br>
   	  <%= link_to "Editar post", edit_post_path(@post.id), class:"mdl-button mdl-js-button" %>
   	  <%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza disso?" }, class:"mdl-button mdl-js-button" %>
       <br><br>
+  </center>
 <% end %>
 <br>
 <div class="mdl-card mdl-shadow--2dp" id="show-post-card">
