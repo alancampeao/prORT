@@ -12,37 +12,39 @@
 <% elsif @posts.count == 0 && params[:category].blank? && params[:q].present? %>
   <center><h2>Não possuimos nenhum post com determinado termo de pesquisa!</h2></center>
 <% else %>
-  <% @posts.each do |post| %>
-                          <br>
-                          <div class="mdl-card mdl-shadow--2dp" id="post-card-index">
-                              <div class="mdl-card__title">
-                                  <h2 class="mdl-card__title-text"><%= link_to post.title, post_path(post) %></h2>
-                              </div>
-                              <div class="mdl-card__supporting-text">
-                                  <b><%=  truncate(post.content, length: 25) %></b>
-                              </div>
-                              <div class="mdl-card__actions mdl-card--border">
-                                   <% if post.anonymous == '1' %>
-                                         <p><b>Autor</b>: Anônimo</p>
-                                    <% else %>
-                                        <p><b>Autor</b>: <%= post.user.full_name %></p>
-                                    <% end %>
+<div class="mdl-grid">
+    <% @posts.each do |post| %>
+                              <div class="mdl-cell mdl-cel--4-col" >
+                                <div class="mdl-card mdl-shadow--2dp" id="post-card-index">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text"><%= link_to post.title, post_path(post) %></h2>
+                                    </div>
+                                    <div class="mdl-card__supporting-text">
+                                        <b><%=  truncate(post.content, length: 25) %></b>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                         <% if post.anonymous == '1' %>
+                                               <p><b>Autor</b>: Anônimo</p>
+                                          <% else %>
+                                              <p><b>Autor</b>: <%= post.user.full_name %></p>
+                                          <% end %>
 
-                                   <p><b>Pontuação</b>: <%= post.score %> </p>
+                                         <p><b>Pontuação</b>: <%= post.score %> </p>
 
-                                    <% if post.category != nil %>
-                                        <p><b>Categoria</b>: <%= post.category.name %></p>
-                                    <% end %>
+                                          <% if post.category != nil %>
+                                              <p><b>Categoria</b>: <%= post.category.name %></p>
+                                          <% end %>
 
-                                    <p><b>Criado há</b>: <%= time_ago_in_words(post.created_at) %></p>
+                                          <p><b>Criado há</b>: <%= time_ago_in_words(post.created_at) %></p>
+                                    </div>
+                                    <div id="avaliacao-index">
+                                        <%= link_to "Gostei", like_post_path(post), method: :put,  class:"mdl-button mdl-js-button mdl-button--raised mdl-button--accent" %>
+                                        <%= link_to "Não gostei", dislike_post_path(post), method: :put,  class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+                                    </div>
+                                </div>
                               </div>
-                              <div id="avaliacao-index">
-                                  <%= link_to "Gostei", like_post_path(post), method: :put,  class:"mdl-button mdl-js-button mdl-button--raised mdl-button--accent" %>
-                                  <%= link_to "Não gostei", dislike_post_path(post), method: :put,  class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
-                              </div>
-                          </div>
-                          <br><br>
-  <% end %>
-  <br>
+                            <br><br>
+    <% end %>
+</div>
 <% end %>
 
