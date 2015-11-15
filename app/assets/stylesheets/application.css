@@ -15,18 +15,49 @@
  *= require_self
  */
 
+.titulo{
+		text-align: center;
+		color: #12263F
+	}
+
+	.descricao{
+		text-align: center;
+	}
+
+	#alan {
+		float: left;
+	}
+
+	#thor {
+		float: left;
+	}
+    
+    #ana {
+    	float: left;
+    }
+
+    #gustavo {
+    	float: left;
+    }
+
+    #vitor {
+    	float: left;
+    }
+#waterfallTitle {
+	color: #12263F;
+}
+
 #post-card-index {
 	background: #F1EFF7;
-	left: 10px;
-	width: 370px;
+	left: 1%;
 }
 
 .demo-card-square.mdl-card {
-position: fixed;
-  top: 50%;
-  left: 50%;
+	position: fixed;
+    top: 50%;
+    left: 50%;
   /* bring your own prefixes */
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .demo-card-square > .mdl-card__supporting-text {
@@ -74,7 +105,7 @@ position: fixed;
 }
 
 #post-paths-show {
-	left: 10px;
+	
 }
 
 .categorias {

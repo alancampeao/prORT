@@ -4,6 +4,7 @@
   	  <%= link_to 'Apagar post', post_path, :method => :delete, data: { confirm: "Tem certeza disso?" }, class:"mdl-button mdl-js-button" %>
       <br><br>
 <% end %>
+<br>
 <div class="mdl-card mdl-shadow--2dp" id="show-post-card">
   <div class="mdl-card__title">
       <h2 class="mdl-card__title-text"><%= link_to @post.title, post_path(@post) %></h2>
@@ -32,14 +33,16 @@
   </div>
   <div class="mdl-card__actions mdl-card--border" id="comentarios">
   	<% if @post.comments.count == 0 %>
-		<h5>Não temos comentários para esse post até o momento.</h5>
-	<% elsif @post.comments.count == 1 %>
-		<h5>Temos um comentário:</h5>
-		<%= render "comments/comment" %>
-	<% else %>
-		<h5>Temos <%= @post.comments.count %> comentários:</h5>
-		<%= render "comments/comment" %>
-	<% end %>
-	<h6>Adicione um comentário!</h6>
-	<%= render "comments/form" %>
+		  <h5>Não temos comentários para esse post até o momento.</h5>
+	   <% elsif @post.comments.count == 1 %>
+		  <h5>Temos um comentário:</h5>
+		  <%= render "comments/comment" %>
+	  <% else %>
+		  <h5>Temos <%= @post.comments.count %> comentários:</h5>
+		  <%= render "comments/comment" %>
+	  <% end %>
+	  <h6>Adicione um comentário!</h6>
+	  <%= render "comments/form" %>
+  </div>
+  <br>
 </div>
